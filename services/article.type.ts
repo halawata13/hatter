@@ -6,6 +6,16 @@ export interface Article {
   imageUrl: string;
 }
 
-export enum Category {
-  IT = 'it',
-}
+export const categories = [
+  'general',
+  'social',
+  'economics',
+  'life',
+  'knowledge',
+  'it',
+  'fun',
+  'entertainment',
+  'game',
+] as const;
+
+export type Category = typeof categories[number];

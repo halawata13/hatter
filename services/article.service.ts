@@ -18,6 +18,29 @@ export const getArticles = async (category: Category): Promise<Article[]> => {
   }));
 };
 
+export const getCategoryLabel = (category: Category) => {
+  switch (category) {
+    case 'general':
+      return '一般';
+    case 'social':
+      return '世の中';
+    case 'economics':
+      return '政治と経済';
+    case 'life':
+      return '暮らし';
+    case 'knowledge':
+      return '学び';
+    case 'it':
+      return 'テクノロジー';
+    case 'fun':
+      return 'おもしろ';
+    case 'entertainment':
+      return 'エンタメ';
+    case 'game':
+      return 'アニメとゲーム';
+  }
+};
+
 const hexNumRefToString = (hexNumRef: string) => {
   return hexNumRef.replace(/&#x([0-9a-f]+);/ig, (_, $1) => {
     return String.fromCharCode(Number('0x' + $1));
