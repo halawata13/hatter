@@ -19,3 +19,10 @@ export const categories = [
 ] as const;
 
 export type Category = typeof categories[number];
+
+export const types = [
+  'entrylist',
+  'hotentry',
+] as const;
+
+export type Type = typeof types[number];

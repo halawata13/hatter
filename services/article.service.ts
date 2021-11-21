@@ -1,13 +1,13 @@
-import { Article, Category } from './article.type';
+import { Article, Category, Type } from './article.type';
 import axios from 'axios';
 import { XMLParser } from 'fast-xml-parser';
 import { DateTime } from 'luxon';
 
-export const getArticles = async (category: Category): Promise<Article[]> => {
-  const response = await axios.get<string>(`https://b.hatena.ne.jp/entrylist/${category}.rss`);
+export const getArticles = async (category: Category, type: Type): Promise<Article[]> => {
+  const response = await axios.get<string>(`https://b.hatena.ne.jp/${type}/${category}.rss`);
   const parser = new XMLParser();
   const json = parser.parse(response.data);
-  const items: any[] = json['rdf:RDF'].item;
+  const items: any[] = json['rdf:RDF']?.item ?? [];
 
   return items.map(item => ({
     title: hexNumRefToString(item.title),
