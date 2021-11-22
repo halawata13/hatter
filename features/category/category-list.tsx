@@ -1,6 +1,7 @@
-import { ListItem, UnorderedList } from "@chakra-ui/react";
-import Link from 'next/link';
+import { ListItem, UnorderedList, Link } from "@chakra-ui/react";
+import { default as NextLink } from 'next/link';
 import { categories } from "../../services/article.type";
+import { getCategoryLabel } from '../../services/article.service';
 
 interface Props {
   categories: typeof categories;
@@ -8,10 +9,12 @@ interface Props {
 
 export const CategoryList = (props: Props) => {
   return (
-    <UnorderedList>
+    <UnorderedList listStyleType={'none'}>
       {props.categories.map((category, index) => (
         <ListItem key={index}>
-          {category}
+          <NextLink href={`/${category}`} passHref>
+            <Link d={'block'} py={4}>{getCategoryLabel(category)}</Link>
+          </NextLink>
         </ListItem>
       ))}
     </UnorderedList>

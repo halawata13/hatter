@@ -7,17 +7,22 @@ import { Article, categories, Category, types } from '../services/article.type';
 import { Header } from "../layouts/header";
 import { Main } from "../layouts/main";
 import { Page } from "../layouts/page";
+import { ParsedUrlQuery } from 'querystring';
 
 interface Props {
   articles: Article[];
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
+  const [ category, type ] = (() => {
+    return context.params as ParsedUrlQuery;
+  })();
   // const articles = await getArticles('it', 'entrylist');
+  console.log(context.query);
   return { props: { articles: [] } };
 };
 
-const Home: NextPage<Props> = props => {
+const Articles: NextPage<Props> = props => {
 
   return (
     <Page>
@@ -27,4 +32,4 @@ const Home: NextPage<Props> = props => {
   );
 };
 
-export default Home;
+export default Articles;

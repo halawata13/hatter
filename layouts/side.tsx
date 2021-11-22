@@ -8,7 +8,7 @@ interface Props {
 
 export const Side = (props: Props) => {
   return (
-    <Box as={'aside'} bgColor={'#F0F0F0'} w={60}>
+    <Box as={'aside'} position={'fixed'} left={0} top={0} w={60} h={'100vh'} zIndex={1} bgColor={'#F0F0F0'}>
       <Box as={'nav'}>
         <CategoryList categories={props.categories} />
       </Box>
