@@ -10,7 +10,7 @@ interface Props {
 
 export const ArticleType = (props: Props) => {
   const router = useRouter();
-  const category = (categories.includes(String(router.query.params?.[0])) ? String(router.query.params?.[0]) : 'it') as Category;
+  const category = ((categories as ReadonlyArray<string>).includes(String(router.query.params?.[0])) ? String(router.query.params?.[0]) : 'it') as Category;
 
   const selected = (type: string) => {
     if (router.asPath.includes(type) || (router.asPath === '' && type === 'entrylist')) {
