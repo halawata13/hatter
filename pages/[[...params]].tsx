@@ -1,13 +1,8 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { getArticles } from '../services/article.service';
-import { Article, categories, Category, types } from '../services/article.type';
+import { Article, categories, Category, Type, types } from '../services/article.type';
 import { Header } from "../layouts/header";
 import { Main } from "../layouts/main";
 import { Page } from "../layouts/page";
-import { ParsedUrlQuery } from 'querystring';
 
 interface Props {
   articles: Article[];
@@ -15,11 +10,27 @@ interface Props {
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const [ category, type ] = (() => {
-    return context.params as ParsedUrlQuery;
+    const category = (categories.includes(String(context.params?.[0])) ? String(context.params?.[0]) : 'it') as Category;
+    const type = (types.includes(String(context.params?.[1])) ? String(context.params?.[1]) : 'entrylist') as Type;
+    return [category, type];
   })();
-  // const articles = await getArticles('it', 'entrylist');
-  console.log(context.query);
-  return { props: { articles: [] } };
+  // const articles = await getArticles(category, type);
+  return { props: { articles: [
+        {
+          title: 'タイトル',
+          date: '2021-11-23',
+          description: '私も場合もっともその通知順という方の限りが勧めますべき。もとより時間が建設心も毫もその解なりまいかもにできしみるありがも啓発しうですて、少しにはしないましませた。シャツが見つからなけれ事はいよいよ時分がついになけれないた。',
+          imageUrl: '',
+          link: '',
+        },
+        {
+          title: 'タイトル',
+          date: '2021-11-23',
+          description: '私も場合もっともその通知順という方の限りが勧めますべき。もとより時間が建設心も毫もその解なりまいかもにできしみるありがも啓発しうですて、少しにはしないましませた。シャツが見つからなけれ事はいよいよ時分がついになけれないた。',
+          imageUrl: '',
+          link: '',
+        },
+      ] } };
 };
 
 const Articles: NextPage<Props> = props => {

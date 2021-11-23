@@ -12,12 +12,12 @@ interface Props {
 
 export const Main = (props: Props) => {
   return (
-    <HStack as={'main'} flexGrow={1}>
+    <Box as={'main'}>
       <Side categories={props.categories} />
-      <Box>
+      <Box w={'1024px'} ps={60}>
         <ArticleType types={props.types} />
         <ArticleList articles={props.articles} />
       </Box>
-    </HStack>
+    </Box>
   );
 };

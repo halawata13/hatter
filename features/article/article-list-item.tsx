@@ -7,15 +7,15 @@ interface Props {
 
 export const ArticleListItem = (props: Props) => {
   return (
-    <Link href={props.article.link} isExternal>
-      <HStack as={'article'}>
-        <Image src={props.article.imageUrl} alt={props.article.title} />
+    <Link href={props.article.link} isExternal p={4} borderRadius={8} bgColor={'#F8F8F8'} _hover={{ textDecoration: 'none' }}>
+      <HStack as={'article'} spacing={4}>
+        <Image src={props.article.imageUrl} alt={''} w={'112px'} h={'112px'} borderRadius={6} bgColor={'#D8D8D8'} />
         <Box>
-          <HStack as={'header'}>
-            <Heading as={'h2'}>{props.article.title}</Heading>
-            <Box as={'time'}>{props.article.date}</Box>
+          <HStack as={'header'} justifyContent={'space-between'} alignItems={'flex-start'} mb={4}>
+            <Heading as={'h2'} fontWeight={'normal'} fontSize={24}>{props.article.title}</Heading>
+            <Box as={'time'} fontSize={12}>{props.article.date}</Box>
           </HStack>
-          <Box as={'p'}>{props.article.description}</Box>
+          <Box as={'p'} fontSize={14}>{props.article.description}</Box>
         </Box>
       </HStack>
     </Link>

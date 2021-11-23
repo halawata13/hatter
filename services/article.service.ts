@@ -41,6 +41,15 @@ export const getCategoryLabel = (category: Category) => {
   }
 };
 
+export const getTypeLabel = (type: Type) => {
+  switch (type) {
+    case 'entrylist':
+      return '新着';
+    case "hotentry":
+      return '人気';
+  }
+};
+
 const hexNumRefToString = (hexNumRef: string) => {
   return hexNumRef.replace(/&#x([0-9a-f]+);/ig, (_, $1) => {
     return String.fromCharCode(Number('0x' + $1));

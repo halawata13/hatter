@@ -8,7 +8,7 @@ interface Props {
 
 export const ArticleList = (props: Props) => {
   return (
-    <VStack as={'ul'}>
+    <VStack p={4} spacing={4}>
       {props.articles.map((article, index) => (
         <ArticleListItem key={index} article={article} />
       ))}
