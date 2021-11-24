@@ -1,5 +1,5 @@
 import { Article } from "../../services/article.type";
-import { VStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ArticleListItem } from "./article-list-item";
 
 interface Props {
@@ -8,10 +8,10 @@ interface Props {
 
 export const ArticleList = (props: Props) => {
   return (
-    <VStack p={4} spacing={4}>
+    <Box d={['flex', 'flex', 'flex', 'grid']} p={4} flexDirection={'column'} gridTemplateColumns={'calc(50% - 8px) calc(50% - 8px)'} gridColumnGap={4}>
       {props.articles.map((article, index) => (
         <ArticleListItem key={index} article={article} />
       ))}
-    </VStack>
+    </Box>
   );
 };

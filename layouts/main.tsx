@@ -14,7 +14,7 @@ export const Main = (props: Props) => {
   return (
     <Box as={'main'}>
       <Side categories={props.categories} />
-      <Box w={'1024px'} ps={60}>
+      <Box ps={[0, 0, 60]}>
         <ArticleType types={props.types} />
         <ArticleList articles={props.articles} />
       </Box>
