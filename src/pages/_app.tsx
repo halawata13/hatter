@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
+import '../styles/global.css';
 
 const breakpoints = createBreakpoints({
   sm: '30em',
@@ -10,13 +11,6 @@ const breakpoints = createBreakpoints({
 });
 
 const theme = extendTheme({
-  styles: {
-    global: {
-      a: {
-        outline: 'none',
-      },
-    },
-  },
   breakpoints,
 });
 

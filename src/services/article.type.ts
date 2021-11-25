@@ -1,6 +1,7 @@
 export interface Article {
   title: string;
   link: string;
+  linkHost: string;
   description: string;
   date: string;
   imageUrl: string;

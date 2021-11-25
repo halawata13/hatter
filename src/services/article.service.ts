@@ -12,6 +12,14 @@ export const getArticles = async (category: Category, type: Type): Promise<Artic
   return items.map(item => ({
     title: hexNumRefToString(item.title),
     link: String(item.link),
+    linkHost: (() => {
+      try {
+        const url = new URL(item.link);
+        return url.host;
+      } catch (err) {
+        return '';
+      }
+    })(),
     description: hexNumRefToString(item.description),
     date: DateTime.fromISO(item['dc:date']).toFormat('yyyy/MM/dd'),
     imageUrl: String(item['hatena:imageurl']),

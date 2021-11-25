@@ -22,7 +22,7 @@ export const ArticleType = (props: Props) => {
   };
 
   return (
-    <Box as={'ul'} d={'flex'} justifyContent={'center'} alignItems={'center'} w={'100%'} h={'44px'} listStyleType={'none'} bgColor={'#F8F8F8'}>
+    <Box as={'ul'} pos={'fixed'} top={12} left={0} d={'flex'} justifyContent={'center'} alignItems={'center'} w={'100%'} h={'44px'} ps={[0, 0, 60]} listStyleType={'none'} bgColor={'#F8F8F8'}>
       {props.types.map((type, index) => (
         <Box as={'li'} key={index} mx={6} fontSize={14}>
           <NextLink href={`/${category}/${type}`} passHref>

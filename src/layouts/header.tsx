@@ -2,9 +2,7 @@ import {
   Box,
   Button, DrawerBody,
   Drawer,
-  DrawerCloseButton,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Heading,
   HStack, useDisclosure
@@ -24,7 +22,7 @@ export const Header = (props: Props) => {
 
   return (
     <>
-      <HStack as={'header'} justifyContent={['space-between', 'space-between', 'flex-start']} alignItems={'center'} position={'relative'} zIndex={2} h={12} bgColor={'#6E6E6E'} color={'#fff'} px={4}>
+      <HStack as={'header'} pos={'fixed'} top={0} left={0} justifyContent={['space-between', 'space-between', 'flex-start']} alignItems={'center'} zIndex={2} w={'100%'} h={12} bgColor={'#6E6E6E'} color={'#fff'} px={4}>
         <Button ref={btnRef} d={['block', 'block', 'none']} bgColor={'initial'} _hover={{ bgColor: 'initial' }} onClick={onOpen}>
           <IoMenuOutline />
         </Button>

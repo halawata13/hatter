@@ -18,7 +18,7 @@ export const Main = (props: Props) => {
       {(breakpoint !== 'sm') && (
         <Side categories={props.categories} />
       )}
-      <Box ps={[0, 0, 60]}>
+      <Box ps={[0, 0, 60]} pt={24}>
         <ArticleType types={props.types} />
         <ArticleList articles={props.articles} />
       </Box>

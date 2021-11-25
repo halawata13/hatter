@@ -1,0 +1,4 @@
+a:focus,
+a:focus-visible {
+    box-shadow: none !important;
+}

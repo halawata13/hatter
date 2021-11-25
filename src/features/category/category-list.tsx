@@ -28,7 +28,7 @@ export const CategoryList = (props: Props) => {
       {props.categories.map((category, index) => (
         <ListItem key={index} borderRadius={8} fontSize={14} _hover={{ bgColor: '#fff' }} { ...selected(category) } onClick={() => props.onClick?.()}>
           <NextLink href={`/${category}/${type}`} passHref shallow={false}>
-            <Link d={'block'} p={4} _hover={{ textDecoration: 'none' }}>{getCategoryLabel(category as Category)}</Link>
+            <Link d={'block'} p={4} _hover={{ textDecoration: 'none', boxShadow: 'none' }}>{getCategoryLabel(category as Category)}</Link>
           </NextLink>
         </ListItem>
       ))}
