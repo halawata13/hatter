@@ -36,5 +36,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# PWA
+public/sw.js*
+public/workbox-*
+
 # ide
 .idea
