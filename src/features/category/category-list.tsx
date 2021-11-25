@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 interface Props {
   categories: typeof categories;
+  onClick?: () => void;
 }
 
 export const CategoryList = (props: Props) => {
@@ -25,8 +26,8 @@ export const CategoryList = (props: Props) => {
   return (
     <UnorderedList listStyleType={'none'} m={0} px={4}>
       {props.categories.map((category, index) => (
-        <ListItem key={index} borderRadius={8} fontSize={14} _hover={{ bgColor: '#fff' }} { ...selected(category) }>
-          <NextLink href={`/${category}/${type}`} passHref>
+        <ListItem key={index} borderRadius={8} fontSize={14} _hover={{ bgColor: '#fff' }} { ...selected(category) } onClick={() => props.onClick?.()}>
+          <NextLink href={`/${category}/${type}`} passHref shallow={false}>
             <Link d={'block'} p={4} _hover={{ textDecoration: 'none' }}>{getCategoryLabel(category as Category)}</Link>
           </NextLink>
         </ListItem>

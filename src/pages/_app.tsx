@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
-import { RecoilRoot } from 'recoil';
 
 const breakpoints = createBreakpoints({
   sm: '30em',
@@ -23,11 +22,9 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </RecoilRoot>
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
   );
 }
 

@@ -5,13 +5,10 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
-          <title>Hatter</title>
-          <link rel="icon" type="image/png" href="/favicon.png" />
+          <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'crossOrigin'} />
           <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet" />
-          <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
         <Main />
