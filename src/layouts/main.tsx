@@ -15,7 +15,7 @@ export const Main = (props: Props) => {
 
   return (
     <Box as={'main'}>
-      {(breakpoint !== 'sm') && (
+      {breakpoint !== 'sm' && breakpoint !== 'base' && (
         <Side categories={props.categories} />
       )}
       <Box ps={[0, 0, 60]} pt={24}>

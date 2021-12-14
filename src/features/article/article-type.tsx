@@ -13,7 +13,7 @@ export const ArticleType = (props: Props) => {
   const category = ((categories as ReadonlyArray<string>).includes(String(router.query.params?.[0])) ? String(router.query.params?.[0]) : 'it') as Category;
 
   const selected = (type: string) => {
-    if (router.asPath.includes(type) || (router.asPath === '' && type === 'entrylist')) {
+    if (router.asPath.includes(type) || (router.asPath === '/' && type === 'entrylist')) {
       return {
         fontWeight: 'bold',
       };
