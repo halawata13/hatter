@@ -11,10 +11,10 @@ export const ArticleListItem = (props: Props) => {
   const breakpoint = useBreakpoint();
 
   return (
-    <Link href={props.article.link} isExternal mb={4} p={4} borderRadius={8} bgColor={'#F8F8F8'} _hover={{ textDecoration: 'none' }}>
+    <Link href={props.article.link} isExternal d={'flex'} mb={4} p={4} borderRadius={8} bgColor={'#F8F8F8'} _hover={{ textDecoration: 'none' }}>
       <HStack as={'article'} spacing={4} alignItems={'stretch'}>
         {imageUrl ?
-          <Image src={imageUrl} onError={() => setImageUrl('/vercel.svg')} alt={''} flexShrink={'0'} w={'112px'} h={'112px'} borderRadius={6} bgColor={'#D8D8D8'} objectFit={'cover'} />
+          <Image src={imageUrl} onError={() => setImageUrl('/no-image.svg')} alt={''} flexShrink={'0'} w={'112px'} h={'112px'} borderRadius={6} bgColor={'#D8D8D8'} objectFit={'cover'} />
         :
           <Box flexShrink={'0'} w={'112px'} h={'112px'} borderRadius={6} bgColor={'#D8D8D8'} />
         }
