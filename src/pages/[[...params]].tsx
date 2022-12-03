@@ -36,7 +36,7 @@ const Articles: NextPage<Props> = props => {
   return (
     <>
       <Head>
-        <title>{getCategoryLabel(props.category)} - {getTypeLabel(props.type)} | Hatter</title>
+        <title>{`${getCategoryLabel(props.category)} - ${getTypeLabel(props.type)} | Hatter`}</title>
       </Head>
       <Page>
         <Header categories={categories} />
