@@ -1,12 +1,12 @@
 import { Article, Category, Type } from './article.type';
-import axios from 'axios';
 import { XMLParser } from 'fast-xml-parser';
 import { DateTime } from 'luxon';
+import fetch from 'node-fetch';
 
 export const getArticles = async (category: Category, type: Type): Promise<Article[]> => {
-  const response = await axios.get<string>(`https://b.hatena.ne.jp/${type}/${category}.rss`);
+  const responseText = await fetch(`https://b.hatena.ne.jp/${type}/${category}.rss`).then((res) => res.text());
   const parser = new XMLParser();
-  const json = parser.parse(response.data);
+  const json = parser.parse(responseText);
   const items: any[] = json['rdf:RDF']?.item ?? [];
 
   return items.map(item => ({
