@@ -8,7 +8,7 @@ interface Props {
 
 export const ArticleList = (props: Props) => {
   return (
-    <Box d={['flex', 'flex', 'flex', 'grid']} p={4} flexDirection={'column'} gridTemplateColumns={'calc(50% - 8px) calc(50% - 8px)'} gridColumnGap={4}>
+    <Box display={['flex', 'flex', 'flex', 'grid']} p={4} flexDirection={'column'} gridTemplateColumns={'calc(50% - 8px) calc(50% - 8px)'} gridColumnGap={4}>
       {props.articles.map(article => (
         <ArticleListItem key={article.link} article={article} />
       ))}

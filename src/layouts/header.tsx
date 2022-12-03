@@ -23,7 +23,7 @@ export const Header = (props: Props) => {
   return (
     <>
       <HStack as={'header'} pos={'fixed'} top={0} left={0} justifyContent={['space-between', 'space-between', 'flex-start']} alignItems={'center'} zIndex={2} w={'100%'} h={12} bgColor={'#6E6E6E'} color={'#fff'} px={4}>
-        <Button ref={btnRef} d={['block', 'block', 'none']} bgColor={'initial'} _hover={{ bgColor: 'initial' }} onClick={onOpen}>
+        <Button ref={btnRef} display={['block', 'block', 'none']} bgColor={'initial'} _hover={{ bgColor: 'initial' }} onClick={onOpen}>
           <IoMenuOutline />
         </Button>
         <Heading as={'h1'} fontWeight={300} fontSize={24} fontFamily={'"Nunito Sans", sans-serif'}>Hatter</Heading>

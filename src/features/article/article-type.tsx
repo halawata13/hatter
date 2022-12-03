@@ -1,8 +1,9 @@
-import { Box, HStack, Link } from "@chakra-ui/react";
-import { categories, Category, Type, types } from "../../services/article.type";
+import { Box, Link } from "@chakra-ui/react";
+import { Type, types } from "../../services/article.type";
 import { useRouter } from "next/router";
-import { default as NextLink } from 'next/link';
 import { getTypeLabel } from "../../services/article.service";
+import { useRecoilState } from "recoil";
+import { categoryState } from "../../states/category.state";
 
 interface Props {
   types: typeof types;
@@ -10,10 +11,10 @@ interface Props {
 
 export const ArticleType = (props: Props) => {
   const router = useRouter();
-  const category = ((categories as ReadonlyArray<string>).includes(String(router.query.params?.[0])) ? String(router.query.params?.[0]) : 'it') as Category;
+  const [ state, setState ] = useRecoilState(categoryState);
 
   const selected = (type: string) => {
-    if (router.asPath.includes(type) || (router.asPath === '/' && type === 'entrylist')) {
+    if (state.type === type) {
       return {
         fontWeight: 'bold',
       };
@@ -21,13 +22,20 @@ export const ArticleType = (props: Props) => {
     return {};
   };
 
+  const onTypeClicked = (type: Type) => {
+    setState({
+      category: state.category,
+      type: type,
+    });
+
+    void router.push(`/${state.category}/${type}`);
+  };
+
   return (
-    <Box as={'ul'} pos={'fixed'} top={12} left={0} d={'flex'} justifyContent={'center'} alignItems={'center'} w={'100%'} h={'44px'} ps={[0, 0, 60]} listStyleType={'none'} bgColor={'#F8F8F8'}>
+    <Box as={'ul'} pos={'fixed'} top={12} left={0} display={'flex'} justifyContent={'center'} alignItems={'center'} w={'100%'} h={'44px'} ps={[0, 0, 60]} listStyleType={'none'} bgColor={'#F8F8F8'}>
       {props.types.map((type, index) => (
         <Box as={'li'} key={index} mx={6} fontSize={14}>
-          <NextLink href={`/${category}/${type}`} passHref>
-            <Link _hover={{ textDecoration: 'none' }} { ...selected(type) }>{getTypeLabel(type as Type)}</Link>
-          </NextLink>
+          <Link _hover={{ textDecoration: 'none' }} {...selected(type)} onClick={() => onTypeClicked(type)}>{getTypeLabel(type as Type)}</Link>
         </Box>
       ))}
     </Box>
